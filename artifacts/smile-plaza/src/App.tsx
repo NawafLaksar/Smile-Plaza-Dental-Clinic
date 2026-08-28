@@ -273,7 +273,9 @@ function App() {
                </div>
               <div className="visual-wash" />
               <div className="visual-orbit"><Sparkles size={22} /></div>
-               <img className="hero-logo" src="/smile-plaza-logo.png" alt="ساحة الابتسامة - Smile Plaza" />
+                <div className="hero-brand-badge">
+                  <img className="hero-logo" src="/smile-plaza-logo.png" alt="ساحة الابتسامة - Smile Plaza" />
+                </div>
               <div className="visual-card">
                 <span className="visual-card-label">موعدك القادم، كما تحبينه</span>
                 <strong>استشارة تبدأ بالاستماع</strong>
