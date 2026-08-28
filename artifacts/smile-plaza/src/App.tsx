@@ -143,9 +143,9 @@ function App() {
       <div className="topbar">
         <div className="container topbar-inner">
           <div className="topbar-items">
-            <a className="topbar-item topbar-link" href="tel:+966920012345" data-testid="link-topbar-phone">
+            <a className="topbar-item topbar-link" href="tel:+966500554938" data-testid="link-topbar-phone">
               <Phone size={13} />
-              9200 12345
+              050 055 4938
             </a>
             <span className="topbar-item"><Clock3 size={13} /> السبت — الخميس، ٩ ص — ٩ م</span>
           </div>
@@ -156,9 +156,9 @@ function App() {
       <header className="nav-wrap">
         <nav className="container nav" aria-label="التنقل الرئيسي">
           <a className="brand" href="#home" onClick={(event) => { event.preventDefault(); handleNavigation('home'); }} data-testid="link-brand">
-            <img className="brand-logo" src="/smile-plaza-logo.png" alt="شعار سمايل بلازا" />
+            <img className="brand-logo" src="/smile-plaza-logo.png" alt="شعار ساحة الابتسامة" />
             <span className="brand-word">
-              <strong>سمايل بلازا</strong>
+              <strong>ساحة الابتسامة</strong>
               <span>SMILE PLAZA</span>
             </span>
           </a>
@@ -207,7 +207,7 @@ function App() {
               <div className="eyebrow">عيادة أسنان سعودية بمعايير عالمية</div>
               <h1 className="hero-title">رحلتك لابتسامة <em>مثالية</em><br />تبدأ من هنا</h1>
               <p className="hero-copy">
-                في سمايل بلازا، نؤمن أن الرعاية المميزة لا تظهر في النتيجة فقط، بل في كل لحظة تسبقها. فريقنا يستمع، يشرح، ويصمم لك تجربة تشعر معها بالاطمئنان.
+                في ساحة الابتسامة، نؤمن أن الرعاية المميزة لا تظهر في النتيجة فقط، بل في كل لحظة تسبقها. فريقنا يستمع، يشرح، ويصمم لك تجربة تشعر معها بالاطمئنان.
               </p>
               <div className="hero-actions">
                 <button className="button button-primary" type="button" onClick={() => scrollToSection('booking')} data-testid="button-hero-book">
@@ -222,10 +222,10 @@ function App() {
               <div className="hero-note"><ShieldCheck size={16} /> خطط علاج واضحة، ونتائج تشبهك</div>
             </div>
 
-            <div className="hero-visual" aria-label="تجربة سمايل بلازا">
+             <div className="hero-visual" aria-label="تجربة ساحة الابتسامة">
               <div className="visual-wash" />
               <div className="visual-orbit"><Sparkles size={22} /></div>
-              <img className="hero-logo" src="/smile-plaza-logo.png" alt="سمايل بلازا - ساحة الابتسامة" />
+               <img className="hero-logo" src="/smile-plaza-logo.png" alt="ساحة الابتسامة - Smile Plaza" />
               <div className="visual-card">
                 <span className="visual-card-label">موعدك القادم، كما تحبينه</span>
                 <strong>استشارة تبدأ بالاستماع</strong>
@@ -234,10 +234,10 @@ function App() {
               <span className="side-caption">CARE · CONFIDENCE · SMILE</span>
             </div>
           </div>
-          <div className="hero-scroll"><i /> اكتشفي عالم سمايل بلازا</div>
+           <div className="hero-scroll"><i /> اكتشفي عالم ساحة الابتسامة</div>
         </section>
 
-        <section className="trust-strip" aria-label="لماذا سمايل بلازا">
+        <section className="trust-strip" aria-label="لماذا ساحة الابتسامة">
           <div className="container trust-grid">
             <div className="trust-item" data-testid="trust-experts">
               <div className="trust-icon"><Stethoscope size={19} /></div>
@@ -343,7 +343,7 @@ function App() {
                 <h2 className="section-heading">خبرة تسمعينها<br />في كل إجابة.</h2>
               </Reveal>
               <Reveal delay={100}>
-                <p className="section-intro">وراء كل ابتسامة في سمايل بلازا طبيب يملك العلم، والوقت، والاهتمام ليمنحك أفضل ما لديه.</p>
+                <p className="section-intro">وراء كل ابتسامة في ساحة الابتسامة طبيب يملك العلم، والوقت، والاهتمام ليمنحك أفضل ما لديه.</p>
               </Reveal>
             </div>
             <div className="doctor-grid">
@@ -370,7 +370,7 @@ function App() {
               <span className="section-kicker">من قلب التجربة</span>
               <div className="voices-mark">“</div>
               <p className="voice-quote">«من أول مكالمة حسيت أني مو مجرد رقم موعد. النتيجة طبيعية جداً، وهذا بالضبط اللي كنت أتمناه.»</p>
-              <div className="voice-by">نوف، إحدى مريضات سمايل بلازا</div>
+               <div className="voice-by">نوف، إحدى مريضات ساحة الابتسامة</div>
             </Reveal>
             <div className="voice-cards">
               <Reveal className="voice-card" delay={130}>
@@ -394,7 +394,7 @@ function App() {
               <h2 className="section-heading">جاهزة لابتسامة<br />تشبهك؟</h2>
               <p className="section-intro">اتركي بياناتك وسيتواصل معك فريقنا في أقرب وقت لتأكيد الموعد المناسب لك.</p>
               <div className="booking-promise"><CheckCircle2 size={18} /> نضمن لك خصوصية بياناتك، ووضوح كل تفاصيل رحلتك قبل البدء.</div>
-              <a className="booking-contact" href="tel:+966920012345" data-testid="link-booking-phone"><Phone size={17} /> 9200 12345</a>
+               <a className="booking-contact" href="tel:+966500554938" data-testid="link-booking-phone"><Phone size={17} /> 050 055 4938</a>
             </Reveal>
 
             <Reveal className="booking-form-wrap" delay={130}>
@@ -458,17 +458,17 @@ function App() {
           <div className="footer-grid">
             <div className="footer-brand">
               <a className="brand" href="#home" onClick={(event) => { event.preventDefault(); handleNavigation('home'); }} data-testid="link-footer-brand">
-                <img className="brand-logo" src="/smile-plaza-logo.png" alt="شعار سمايل بلازا" />
-                <span className="brand-word"><strong>سمايل بلازا</strong><span>SMILE PLAZA</span></span>
+                <img className="brand-logo" src="/smile-plaza-logo.png" alt="شعار ساحة الابتسامة" />
+                <span className="brand-word"><strong>ساحة الابتسامة</strong><span>SMILE PLAZA</span></span>
               </a>
-              <p className="footer-about">مساحتك الهادئة لابتسامة صحية وواثقة. نراك كما أنت، ونعتني بك كما تستحق.</p>
+              <p className="footer-about">مساحتك الهادئة لابتسامة صحية وواثقة في مكة. نراك كما أنت، ونعتني بك كما تستحق.</p>
             </div>
             <div>
               <h3 className="footer-title">تواصلي معنا</h3>
               <ul className="footer-list">
-                <li><Phone size={15} /><a className="topbar-link" href="tel:+966920012345" data-testid="link-footer-phone">9200 12345</a></li>
-                <li><Mail size={15} /><a className="topbar-link" href="mailto:hello@smileplaza.sa" data-testid="link-footer-email">hello@smileplaza.sa</a></li>
-                <li><MapPin size={15} /><span>طريق الملك فهد، حي العليا<br />الرياض، المملكة العربية السعودية</span></li>
+                <li><Phone size={15} /><a className="topbar-link" href="tel:+966500554938" data-testid="link-footer-phone">050 055 4938</a></li>
+                <li><Mail size={15} /><a className="topbar-link" href="mailto:smile.plaza.dent@gmail.com" data-testid="link-footer-email">smile.plaza.dent@gmail.com</a></li>
+                <li><MapPin size={15} /><span>الخالدية - شارع محمد صالح قزاز<br />مكة المكرمة، المملكة العربية السعودية 24211</span></li>
               </ul>
             </div>
             <div>
@@ -479,19 +479,19 @@ function App() {
               </ul>
             </div>
             <div className="footer-map">
-              <h3 className="footer-title">موقعنا في الرياض</h3>
-              <div className="map-placeholder" role="img" aria-label="خريطة توضح موقع سمايل بلازا في حي العليا" data-testid="map-location">
+              <h3 className="footer-title">موقعنا في مكة المكرمة</h3>
+              <div className="map-placeholder" role="img" aria-label="خريطة توضح موقع ساحة الابتسامة في الخالدية بمكة" data-testid="map-location">
                 <div className="map-pin"><MapPin size={16} /></div>
-                <span className="map-label">حي العليا · طريق الملك فهد</span>
+                <span className="map-label">الخالدية · شارع محمد صالح قزاز</span>
               </div>
             </div>
           </div>
           <div className="footer-bottom">
-            <span>© ٢٠٢٤ سمايل بلازا. جميع الحقوق محفوظة.</span>
+            <span>© ٢٠٢٤ ساحة الابتسامة. جميع الحقوق محفوظة.</span>
             <div className="social-links" aria-label="حسابات التواصل الاجتماعي">
-              <a className="social-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="إنستغرام" data-testid="link-social-instagram"><Instagram size={16} /></a>
-              <a className="social-link" href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="فيسبوك" data-testid="link-social-facebook"><Facebook size={16} /></a>
-              <a className="social-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="لينكدإن" data-testid="link-social-linkedin"><Linkedin size={16} /></a>
+              <a className="social-link" href="https://www.instagram.com/smileplaza.sa/" target="_blank" rel="noreferrer" aria-label="إنستغرام ساحة الابتسامة" data-testid="link-social-instagram"><Instagram size={16} /></a>
+              <a className="social-link" href="https://www.facebook.com/smileplaza.sa/" target="_blank" rel="noreferrer" aria-label="فيسبوك ساحة الابتسامة" data-testid="link-social-facebook"><Facebook size={16} /></a>
+              <a className="social-link" href="https://x.com/SmileplazaSa" target="_blank" rel="noreferrer" aria-label="إكس ساحة الابتسامة" data-testid="link-social-linkedin"><Linkedin size={16} /></a>
             </div>
             <button className="back-top" type="button" onClick={() => scrollToSection('home')} aria-label="العودة إلى الأعلى" data-testid="button-back-top"><ArrowUpLeft size={17} /></button>
           </div>
