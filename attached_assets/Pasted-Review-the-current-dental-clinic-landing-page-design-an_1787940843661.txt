@@ -1,0 +1,71 @@
+Review the current dental clinic landing page design and improve it professionally.
+
+First, analyze the existing page carefully. Do NOT duplicate sections that already exist. If a section or feature is already implemented, keep it and move to the next improvement. Only add missing elements.
+
+The goal is to make the landing page feel like a premium, modern dental clinic website that builds trust and encourages visitors to book an appointment.
+
+Check and improve the following items:
+
+1. Hero Section:
+- Make sure the first screen has a strong emotional headline about confidence and a beautiful smile.
+- Add a clear CTA button such as "Book Your Appointment" or "Free Consultation".
+- If missing, add a premium dental clinic image/video background or doctor image.
+- Keep the current luxury style (dark brown, cream, gold accents).
+
+2. Why Choose Us Section:
+- If missing, add a section showing:
+  - Experienced dentists
+  - Modern technology
+  - Comfortable patient experience
+  - High-quality dental care
+- Use elegant cards matching the existing design.
+
+3. Before & After Section:
+- If missing, create a premium before/after showcase for:
+  - Teeth whitening
+  - Dental implants
+  - Smile makeover
+- Use an interactive comparison style if possible.
+
+4. Dentist / Medical Team Section:
+- If missing, add a doctor profile section with:
+  - Professional image
+  - Name
+  - Specialty
+  - Years of experience
+  - Certifications
+
+5. Treatment Journey Section:
+- If missing, add a simple 4-step process:
+  1. Book appointment
+  2. Dental consultation
+  3. Personalized treatment plan
+  4. New confident smile
+
+6. Testimonials Section:
+- If missing, add patient reviews with:
+  - 5-star ratings
+  - Short testimonials
+  - Patient names
+- Make it look trustworthy and premium.
+
+7. Offers / Booking CTA:
+- If missing, add a final conversion section encouraging users to book.
+- Include WhatsApp/contact button.
+
+8. Footer:
+- Ensure it includes:
+  - Clinic location
+  - Phone number
+  - Working hours
+  - Social media links
+
+Design requirements:
+- Maintain the current luxury dental clinic aesthetic.
+- Do not change the brand identity.
+- Keep the Arabic RTL layout correct.
+- Use smooth animations (fade-in, subtle hover effects).
+- Make it fully responsive for mobile.
+- Avoid overcrowding; keep a clean premium look similar to luxury medical websites.
+
+Before making changes, inspect the existing components and only add what is missing.
