@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Smile Plaza Dental Clinic"
+description = "A polished Arabic RTL landing page for Smile Plaza dental clinic, featuring premium care messaging, services, doctor profiles, and an interactive appointment booking experience."
+version = "1.0.0"
+id = "artifacts/smile-plaza"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19297
+
+[services.development]
+run = "pnpm --filter @workspace/smile-plaza run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/smile-plaza", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/smile-plaza/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19297"
+BASE_PATH = "/"

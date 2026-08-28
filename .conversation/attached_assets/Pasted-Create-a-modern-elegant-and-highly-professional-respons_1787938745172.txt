@@ -1,0 +1,21 @@
+Create a modern, elegant, and highly professional responsive single-page landing page for a dental clinic named "Smile Plaza" in Arabic language.
+
+Key Requirements:
+1. Logo: Locate and use the uploaded logo image file in the project directory (e.g., logo.png or logo.svg) and place it in the navigation bar and footer.
+2. Design & Color Palette: Use a clean, trustworthy medical/dental aesthetic. Colors should feature fresh dental teals/blues, clean white backgrounds, and soft gray accents to look premium and hygienic.
+3. Responsiveness: Ensure it is 100% mobile-friendly with a fully functional hamburger menu for mobile screens.
+4. Frameworks: Use HTML5, Tailwind CSS (via CDN for fast styling), and vanilla JavaScript for interactivity.
+
+Please build the following sections:
+- Navigation Bar: Clinic Logo, links (Home, Services, Our Doctors, Book Now) with smooth scrolling, and a prominent "Book Appointment" CTA button.
+- Hero Section: A welcoming headline in Arabic ("رحلتك لابتسامة مثالية تبدأ من هنا"), an inspiring subheadline about quality care, a prominent "Book Now" CTA button that scrolls smoothly to the contact form, and a placeholder for a high-quality dental image.
+- Services Section: A clean grid showing cards for:
+  * Cosmetic Dentistry & Whitening (تجميل وتبييض الأسنان)
+  * Dental Implants (زراعة الأسنان)
+  * Orthodontics (تقويم الأسنان)
+  * General & Pediatric Dentistry (طب أسنان الأطفال والأسرة)
+- Trust & Features: A section highlighting "Why Choose Smile Plaza" (Advanced technology, experienced Saudi doctors, painless treatments).
+- Interactive Booking Form: A fully functional mock booking form with fields: Name, Phone, Email, Service selection, and Preferred Date. On submission, show a beautiful, animated success message in Arabic ("تم استلام طلبك بنجاح! سنتواصل معك لتأكيد الموعد").
+- Footer: Logo, contact details (phone, email, map placeholder), working hours, and social media links.
+
+Ensure the entire page is written in professional, inviting Arabic text suited for a premium de
