@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from 'react';
 import {
   ArrowUpLeft,
+  BadgeCheck,
   Baby,
   CalendarDays,
   CheckCircle2,
@@ -12,6 +13,7 @@ import {
   Linkedin,
   Mail,
   MapPin,
+  MessageCircle,
   Menu,
   Phone,
   ScanLine,
@@ -44,6 +46,7 @@ const serviceOptions = [
 const navItems = [
   { label: 'الرئيسية', target: 'home' },
   { label: 'خدماتنا', target: 'services' },
+  { label: 'نتائجنا', target: 'results' },
   { label: 'فريقنا', target: 'doctors' },
   { label: 'تجربة المريض', target: 'journey' },
 ];
@@ -54,18 +57,57 @@ const doctors = [
     name: 'د. أحمد السالم',
     speciality: 'استشاري زراعة وتجميل الأسنان',
     bio: 'خبرة تمتد لأكثر من 14 عاماً في ابتكار خطط علاج طبيعية المظهر.',
+    experience: '١٤+ عاماً من الخبرة',
+    certification: 'زمالة زراعة الأسنان',
+    image: '/doctor-ahmad.png',
   },
   {
     initials: 'د. ن',
     name: 'د. نورة الحربي',
     speciality: 'أخصائية تقويم الأسنان',
     bio: 'تمنح كل ابتسامة وقتها، مع حلول دقيقة تناسب أسلوب حياة المريض.',
+    experience: '١١ عاماً من الخبرة',
+    certification: 'اعتماد تقويم شفاف',
+    image: '/doctor-noura.png',
   },
   {
     initials: 'د. س',
     name: 'د. سارة العتيبي',
     speciality: 'أخصائية أسنان الأطفال',
     bio: 'تبني علاقة محببة مع الصغار لتصبح زيارة الطبيب عادة مطمئنة.',
+    experience: '٩ أعوام من الخبرة',
+    certification: 'عضو طب أسنان الأطفال',
+    image: '/doctor-sara.png',
+  },
+];
+
+const comparisonCases = [
+  {
+    label: 'تبييض الأسنان',
+    eyebrow: 'إشراقة طبيعية',
+    title: 'ابتسامة أكثر إشراقاً',
+    description: 'تغيير ناعم يحافظ على طبيعية ابتسامتك ويمنحها حضوراً أجمل.',
+    before: '/whitening-before.png',
+    after: '/whitening-after.png',
+    result: 'إشراقة متوازنة',
+  },
+  {
+    label: 'زراعة الأسنان',
+    eyebrow: 'ثبات وراحة',
+    title: 'حل يعيد لك الثقة',
+    description: 'تصميم دقيق ينسجم مع ابتسامتك ويعيد لك الراحة في تفاصيل يومك.',
+    before: '/implant-before.png',
+    after: '/implant-after.png',
+    result: 'نتيجة طبيعية',
+  },
+  {
+    label: 'تجميل الابتسامة',
+    eyebrow: 'تفاصيل تصنع الفرق',
+    title: 'تناغم يليق بك',
+    description: 'خطة تجميلية شخصية توازن بين صحة الأسنان وشكل الابتسامة.',
+    before: '/makeover-before.png',
+    after: '/makeover-after.png',
+    result: 'تصميم شخصي',
   },
 ];
 
@@ -105,8 +147,11 @@ function App() {
   const [form, setForm] = useState<BookingForm>({ name: '', phone: '', email: '', service: '', date: '' });
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [activeCase, setActiveCase] = useState(0);
+  const [comparisonPosition, setComparisonPosition] = useState(52);
 
   const today = new Date().toISOString().split('T')[0];
+  const selectedCase = comparisonCases[activeCase];
 
   const handleNavigation = (target: string) => {
     setMenuOpen(false);
@@ -223,6 +268,9 @@ function App() {
             </div>
 
              <div className="hero-visual" aria-label="تجربة ساحة الابتسامة">
+               <div className="hero-photo">
+                 <img src="/clinic-hero.png" alt="استشارة أسنان هادئة في عيادة ساحة الابتسامة" />
+               </div>
               <div className="visual-wash" />
               <div className="visual-orbit"><Sparkles size={22} /></div>
                <img className="hero-logo" src="/smile-plaza-logo.png" alt="ساحة الابتسامة - Smile Plaza" />
@@ -270,33 +318,121 @@ function App() {
               </Reveal>
             </div>
             <div className="services-grid">
-              <Reveal className="service-card" delay={50} style={{ backgroundImage: "url('/cosmetic-whitening.png')" }}>
-                <span className="service-number">01 / 04</span>
-                <Sparkles className="service-icon" size={30} strokeWidth={1.5} />
-                <h3>تجميل الأسنان<br />وتبييضها</h3>
-                <p>تفاصيل صغيرة تصنع فرقاً كبيراً في إشراقة ابتسامتك.</p>
-                <span className="service-arrow"><ArrowUpLeft size={15} /></span>
+              <Reveal className="service-card" delay={50}>
+                <div className="service-card-media"><img src="/cosmetic-whitening.png" alt="ابتسامة مشرقة بعد تبييض الأسنان" /></div>
+                <div className="service-card-body">
+                  <span className="service-number">01 / 04</span>
+                  <Sparkles className="service-icon" size={30} strokeWidth={1.5} />
+                  <h3>تجميل الأسنان<br />وتبييضها</h3>
+                  <p>تفاصيل صغيرة تصنع فرقاً كبيراً في إشراقة ابتسامتك.</p>
+                  <span className="service-arrow"><ArrowUpLeft size={15} /></span>
+                </div>
               </Reveal>
-              <Reveal className="service-card" delay={120} style={{ backgroundImage: "url('/dental-implants.png')" }}>
-                <span className="service-number">02 / 04</span>
-                <ScanLine className="service-icon" size={30} strokeWidth={1.5} />
-                <h3>زراعة<br />الأسنان</h3>
-                <p>حلول ثابتة تعيد لك الراحة والثقة في كل ابتسامة.</p>
-                <span className="service-arrow"><ArrowUpLeft size={15} /></span>
+              <Reveal className="service-card implant-card" delay={120}>
+                <div className="service-card-media"><img src="/dental-implants.png" alt="فحص الأسنان بأداة طبية تمهيدًا لزراعة الأسنان" /></div>
+                <div className="service-card-body">
+                  <span className="service-number">02 / 04</span>
+                  <ScanLine className="service-icon" size={30} strokeWidth={1.5} />
+                  <h3>زراعة<br />الأسنان</h3>
+                  <p>حلول ثابتة تعيد لك الراحة والثقة في كل ابتسامة.</p>
+                  <span className="service-arrow"><ArrowUpLeft size={15} /></span>
+                </div>
               </Reveal>
-              <Reveal className="service-card orthodontics-card" delay={190} style={{ backgroundImage: "url('/orthodontics-smile.png')" }}>
-                <span className="service-number">03 / 04</span>
-                <Smile className="service-icon" size={30} strokeWidth={1.5} />
-                <h3>تقويم<br />الأسنان</h3>
-                <p>ابتسامة متناسقة بخطة عصرية تناسب يومك.</p>
-                <span className="service-arrow"><ArrowUpLeft size={15} /></span>
+              <Reveal className="service-card orthodontics-card" delay={190}>
+                <div className="service-card-media"><img src="/orthodontics-smile.png" alt="ابتسامة مع تقويم أسنان معدني" /></div>
+                <div className="service-card-body">
+                  <span className="service-number">03 / 04</span>
+                  <Smile className="service-icon" size={30} strokeWidth={1.5} />
+                  <h3>تقويم<br />الأسنان</h3>
+                  <p>ابتسامة متناسقة بخطة عصرية تناسب يومك.</p>
+                  <span className="service-arrow"><ArrowUpLeft size={15} /></span>
+                </div>
               </Reveal>
-              <Reveal className="service-card" delay={260} style={{ backgroundImage: "url('/family-pediatric.png')" }}>
-                <span className="service-number">04 / 04</span>
-                <Baby className="service-icon" size={30} strokeWidth={1.5} />
-                <h3>أسنان الأطفال<br />والعائلة</h3>
-                <p>نبني لدى صغارك علاقة لطيفة ومطمئنة مع العناية.</p>
-                <span className="service-arrow"><ArrowUpLeft size={15} /></span>
+              <Reveal className="service-card pediatric-card" delay={260}>
+                <div className="service-card-media"><img src="/family-pediatric.png" alt="طفل مبتسم داخل عيادة أسنان" /></div>
+                <div className="service-card-body">
+                  <span className="service-number">04 / 04</span>
+                  <Baby className="service-icon" size={30} strokeWidth={1.5} />
+                  <h3>أسنان الأطفال<br />والعائلة</h3>
+                  <p>نبني لدى صغارك علاقة لطيفة ومطمئنة مع العناية.</p>
+                  <span className="service-arrow"><ArrowUpLeft size={15} /></span>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        <section className="section results" id="results">
+          <div className="container">
+            <div className="results-header">
+              <Reveal>
+                <span className="section-kicker">نتائج نعتز بها</span>
+                <h2 className="section-heading">فرقٌ تراه العين،<br />وتشعر به الثقة.</h2>
+              </Reveal>
+              <Reveal delay={100}>
+                <p className="section-intro">كل ابتسامة لها قصتها. تصفحي نماذج توضيحية لنتائج نعمل عليها بعناية، واسحبي المقارنة لتري الفرق.</p>
+              </Reveal>
+            </div>
+            <div className="result-tabs" role="tablist" aria-label="اختاري نوع النتيجة">
+              {comparisonCases.map((item, index) => (
+                <button
+                  key={item.label}
+                  className={`result-tab ${activeCase === index ? 'is-active' : ''}`}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeCase === index}
+                  onClick={() => { setActiveCase(index); setComparisonPosition(52); }}
+                  data-testid={`button-result-${index}`}
+                >
+                  <span>0{index + 1}</span>
+                  {item.label}
+                </button>
+              ))}
+            </div>
+            <div className="results-layout">
+              <Reveal className="result-copy">
+                <span className="result-eyebrow">{selectedCase.eyebrow}</span>
+                <h3>{selectedCase.title}</h3>
+                <p>{selectedCase.description}</p>
+                <div className="result-highlight">
+                  <span className="result-highlight-dot" />
+                  <span><strong>{selectedCase.result}</strong> · بتخطيط يناسبك</span>
+                </div>
+                <button className="button button-primary" type="button" onClick={() => scrollToSection('booking')} data-testid="button-results-book">
+                  ابدئي قصتك
+                  <ArrowUpLeft size={16} />
+                </button>
+              </Reveal>
+              <Reveal className="comparison-card" delay={120}>
+                <div className="comparison-stage">
+                  <img src={selectedCase.after} alt={`نتيجة توضيحية بعد ${selectedCase.label}`} />
+                  <img
+                    className="comparison-before"
+                    src={selectedCase.before}
+                    alt={`حالة توضيحية قبل ${selectedCase.label}`}
+                    style={{ clipPath: `inset(0 ${100 - comparisonPosition}% 0 0)` }}
+                  />
+                  <span className="compare-label compare-label-before">قبل</span>
+                  <span className="compare-label compare-label-after">بعد</span>
+                  <div className="comparison-divider" style={{ left: `${comparisonPosition}%` }}>
+                    <span><ArrowUpLeft size={15} /></span>
+                  </div>
+                  <input
+                    className="comparison-range"
+                    type="range"
+                    min="8"
+                    max="92"
+                    value={comparisonPosition}
+                    onChange={(event) => setComparisonPosition(Number(event.target.value))}
+                    aria-label={`مقارنة قبل وبعد ${selectedCase.label}`}
+                    data-testid="input-comparison-range"
+                  />
+                </div>
+                <div className="comparison-caption">
+                  <span>اسحبي للمقارنة</span>
+                  <span className="comparison-caption-line" />
+                  <span>نماذج توضيحية</span>
+                </div>
               </Reveal>
             </div>
           </div>
@@ -349,13 +485,17 @@ function App() {
             <div className="doctor-grid">
               {doctors.map((doctor, index) => (
                 <Reveal key={doctor.name} className="doctor-card" delay={index * 110}>
-                  <div className="doctor-portrait" aria-hidden="true">
-                    <span className="doctor-initials">{doctor.initials}</span>
+                  <div className="doctor-portrait">
+                    <img src={doctor.image} alt={`صورة ${doctor.name}`} />
                     <span className="doctor-dot" />
                   </div>
                   <div className="doctor-info">
                     <h3 data-testid={`text-doctor-name-${index}`}>{doctor.name}</h3>
                     <span>{doctor.speciality}</span>
+                    <div className="doctor-meta">
+                      <span>{doctor.experience}</span>
+                      <span><BadgeCheck size={13} /> {doctor.certification}</span>
+                    </div>
                     <p>{doctor.bio}</p>
                   </div>
                 </Reveal>
@@ -394,7 +534,12 @@ function App() {
               <h2 className="section-heading">جاهزة لابتسامة<br />تشبهك؟</h2>
               <p className="section-intro">اتركي بياناتك وسيتواصل معك فريقنا في أقرب وقت لتأكيد الموعد المناسب لك.</p>
               <div className="booking-promise"><CheckCircle2 size={18} /> نضمن لك خصوصية بياناتك، ووضوح كل تفاصيل رحلتك قبل البدء.</div>
-               <a className="booking-contact" href="tel:+966500554938" data-testid="link-booking-phone"><Phone size={17} /> 050 055 4938</a>
+              <div className="booking-actions">
+                <a className="booking-contact" href="tel:+966500554938" data-testid="link-booking-phone"><Phone size={17} /> 050 055 4938</a>
+                <a className="booking-whatsapp" href="https://wa.me/966500554938?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF" target="_blank" rel="noreferrer" data-testid="link-booking-whatsapp">
+                  <MessageCircle size={17} /> تواصلي عبر واتساب
+                </a>
+              </div>
             </Reveal>
 
             <Reveal className="booking-form-wrap" delay={130}>
