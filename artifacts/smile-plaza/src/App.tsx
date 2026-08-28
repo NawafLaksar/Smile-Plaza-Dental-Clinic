@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from 'react';
 import {
   ArrowUpLeft,
   Baby,
@@ -73,7 +73,7 @@ function scrollToSection(target: string) {
   document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-function Reveal({ children, className = '', delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
+function Reveal({ children, className = '', delay = 0, style }: { children: ReactNode; className?: string; delay?: number; style?: CSSProperties }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -94,7 +94,7 @@ function Reveal({ children, className = '', delay = 0 }: { children: ReactNode; 
   }, []);
 
   return (
-    <div ref={ref} className={`reveal ${visible ? 'is-visible' : ''} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+    <div ref={ref} className={`reveal ${visible ? 'is-visible' : ''} ${className}`} style={{ ...style, transitionDelay: `${delay}ms` }}>
       {children}
     </div>
   );
@@ -270,28 +270,28 @@ function App() {
               </Reveal>
             </div>
             <div className="services-grid">
-              <Reveal className="service-card" delay={50}>
+              <Reveal className="service-card" delay={50} style={{ backgroundImage: "url('/cosmetic-whitening.png')" }}>
                 <span className="service-number">01 / 04</span>
                 <Sparkles className="service-icon" size={30} strokeWidth={1.5} />
                 <h3>تجميل الأسنان<br />وتبييضها</h3>
                 <p>تفاصيل صغيرة تصنع فرقاً كبيراً في إشراقة ابتسامتك.</p>
                 <span className="service-arrow"><ArrowUpLeft size={15} /></span>
               </Reveal>
-              <Reveal className="service-card" delay={120}>
+              <Reveal className="service-card" delay={120} style={{ backgroundImage: "url('/dental-implants.png')" }}>
                 <span className="service-number">02 / 04</span>
                 <ScanLine className="service-icon" size={30} strokeWidth={1.5} />
                 <h3>زراعة<br />الأسنان</h3>
                 <p>حلول ثابتة تعيد لك الراحة والثقة في كل ابتسامة.</p>
                 <span className="service-arrow"><ArrowUpLeft size={15} /></span>
               </Reveal>
-              <Reveal className="service-card" delay={190}>
+              <Reveal className="service-card orthodontics-card" delay={190} style={{ backgroundImage: "url('/orthodontics-smile.png')" }}>
                 <span className="service-number">03 / 04</span>
                 <Smile className="service-icon" size={30} strokeWidth={1.5} />
                 <h3>تقويم<br />الأسنان</h3>
                 <p>ابتسامة متناسقة بخطة عصرية تناسب يومك.</p>
                 <span className="service-arrow"><ArrowUpLeft size={15} /></span>
               </Reveal>
-              <Reveal className="service-card" delay={260}>
+              <Reveal className="service-card" delay={260} style={{ backgroundImage: "url('/family-pediatric.png')" }}>
                 <span className="service-number">04 / 04</span>
                 <Baby className="service-icon" size={30} strokeWidth={1.5} />
                 <h3>أسنان الأطفال<br />والعائلة</h3>
@@ -480,10 +480,21 @@ function App() {
             </div>
             <div className="footer-map">
               <h3 className="footer-title">موقعنا في مكة المكرمة</h3>
-              <div className="map-placeholder" role="img" aria-label="خريطة توضح موقع ساحة الابتسامة في الخالدية بمكة" data-testid="map-location">
-                <div className="map-pin"><MapPin size={16} /></div>
-                <span className="map-label">الخالدية · شارع محمد صالح قزاز</span>
-              </div>
+              <a
+                className="map-placeholder"
+                href="https://www.google.com/maps/search/?api=1&query=%D8%B3%D8%A7%D8%AD%D8%A9%20%D8%A7%D9%84%D8%A7%D8%A8%D8%AA%D8%B3%D8%A7%D9%85%D8%A9%20%D8%A7%D9%84%D8%AE%D8%A7%D9%84%D8%AF%D9%8A%D8%A9%20%D9%85%D9%83%D8%A9"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="فتح موقع ساحة الابتسامة في خرائط Google"
+                data-testid="map-location"
+              >
+                <span className="map-details">
+                  <strong>الخالدية</strong>
+                  <span>شارع محمد صالح قزاز</span>
+                  <span>مكة المكرمة</span>
+                </span>
+                <span className="map-pin"><MapPin size={16} /></span>
+              </a>
             </div>
           </div>
           <div className="footer-bottom">
